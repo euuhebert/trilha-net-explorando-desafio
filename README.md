@@ -18,4 +18,44 @@ O seu programa deverá cálcular corretamente os valores dos métodos da classe 
 ![Diagrama de classe estacionamento](diagrama_classe_hotel.png)
 
 ## Solução
-O código está pela metade, e você deverá dar continuidade obedecendo as regras descritas acima, para que no final, tenhamos um programa funcional. Procure pela palavra comentada "TODO" no código, em seguida, implemente conforme as regras acima.
+
+### Melhorias Implementadas
+
+#### 1. Verificação de Capacidade de Hóspedes na Reserva
+
+```csharp
+public void CadastrarHospedes(List<Pessoa> hospedes)
+{
+    // Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
+    if (hospedes.Count <= Suite.Capacidade)
+    {
+        Hospedes = hospedes;
+    }
+    else
+    {
+        // Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
+        throw new Exception("Capacidade inválida");
+    }
+}
+```
+
+#### 2. Cálculo do Valor da Diária com Desconto
+
+```csharp
+public decimal CalcularValorDiaria()
+{
+    // Retorna o valor da diária
+    // Cálculo: DiasReservados X Suite.ValorDiaria
+    decimal valor = DiasReservados * Suite.ValorDiaria;
+
+    // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
+    if (DiasReservados >= 10)
+    {
+        valor -= (valor / 100) * 10;
+    }
+
+    return valor;
+}
+```
+
+Essas melhorias foram implementadas para garantir uma melhor gestão de reservas e proporcionar uma experiência mais completa no sistema de hospedagem.
