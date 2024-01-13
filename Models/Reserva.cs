@@ -22,7 +22,7 @@ namespace DesafioProjetoHospedagem.Models
                 Hospedes = hospedes;
             }
             else if (hospedes.Count > Suite.Capacidade)
-            {
+            { 
                 // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
                 // *IMPLEMENTE AQUI*
                 throw new Exception("Capacidade inválida");
